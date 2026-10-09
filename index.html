@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nosso rolê | Charlie Brown Jr.</title>
+<style>
+:root{--yellow:#ffd52b;--black:#101010}*{box-sizing:border-box}body{margin:0;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(circle at 20% 10%,#333 0,transparent 35%),repeating-linear-gradient(-25deg,#141414 0 5px,#171717 5px 10px);color:#fff;font-family:Arial,Helvetica,sans-serif;overflow:hidden;padding:20px}.card{width:min(100%,540px);padding:38px 28px 45px;text-align:center;border:2px solid var(--yellow);border-radius:20px;background:#171717ee;box-shadow:10px 10px 0 #000,0 0 55px #ffd52b1a;position:relative}.eyebrow{font-size:12px;letter-spacing:4px;font-weight:800;color:var(--yellow)}h1{font-size:clamp(38px,8vw,66px);line-height:.95;letter-spacing:-2px;text-transform:uppercase;margin:18px 0 20px;text-shadow:4px 4px #000}h1 span{color:var(--yellow)}.skate{font-size:48px;margin:8px 0;transform:rotate(-12deg)}p{line-height:1.6;color:#e7e7e7;font-size:17px}.time{display:inline-block;border:1px dashed var(--yellow);padding:12px 20px;border-radius:8px;color:var(--yellow);font-size:22px;font-weight:900;margin:10px 0 16px}.question{font-size:22px;font-weight:800;color:white;margin:14px 0 28px}.actions{height:65px;display:flex;align-items:center;justify-content:center;gap:20px}button{border:0;border-radius:12px;font-size:18px;font-weight:900;padding:16px 34px;cursor:pointer;touch-action:manipulation}#yes{background:var(--yellow);color:#111;box-shadow:0 5px 0 #ae8800;transition:transform .15s}#yes:hover{transform:translateY(-3px)}#no{background:#fff;color:#222;transition:left .13s ease,top .13s ease;z-index:10;white-space:nowrap}footer{margin-top:28px;color:#aaa;font-size:12px;letter-spacing:1px}.heart{color:var(--yellow)}@media(max-width:420px){.card{padding:28px 18px 35px}p{font-size:15px}button{padding:14px 25px}}
+</style>
+</head>
+<body>
+<main class="card"><div class="eyebrow">UM CONVITE ESPECIAL</div><div class="skate">🛹</div><h1>Meu <span>rolê</span> favorito seria com você.</h1><p>Tem show do <strong>Charlie Brown Jr.</strong> e eu só consigo pensar em uma pessoa que faria essa noite ficar ainda melhor: <strong>você!</strong> 💛</p><div class="time">🎸 SHOW ÀS 21H</div><div class="question">Topa curtir esse show comigo? 🥹</div><div class="actions"><button id="yes">SIM ❤️</button><button id="no">NÃO 😅</button></div><footer>SKATE • ROCK • UM POUQUINHO DE ROMANCE <span class="heart">♥</span></footer></main>
+<script>
+const yes=document.getElementById('yes'),no=document.getElementById('no');
+yes.addEventListener('click',()=>{const msg='Oii! 💛 Eu topo sair com você para curtir o show do Charlie Brown Jr. às 21h! 🎸🥰 Bora viver esse rolê juntos!';window.location.href='https://wa.me/5561998671760?text='+encodeURIComponent(msg)});
+function escapeNo(){const margin=12,w=no.offsetWidth,h=no.offsetHeight;const x=margin+Math.random()*Math.max(0,innerWidth-w-margin*2),y=margin+Math.random()*Math.max(0,innerHeight-h-margin*2);no.style.position='fixed';no.style.left=x+'px';no.style.top=y+'px';}
+no.addEventListener('pointerenter',escapeNo);no.addEventListener('pointerdown',e=>{e.preventDefault();escapeNo()});no.addEventListener('click',e=>{e.preventDefault();escapeNo()});no.addEventListener('focus',escapeNo);
+document.addEventListener('pointermove',e=>{if(no.style.position!=='fixed')return;const r=no.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;if(Math.hypot(e.clientX-cx,e.clientY-cy)<95)escapeNo()});
+</script>
+</body></html>
